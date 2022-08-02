@@ -3,11 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using Oculus.Platform;
 using Oculus.Platform.Models;
+using TMPro;
 public class LeaderBoardManager : MonoBehaviour
 {
     // Start is called before the first frame update
     List<LeaderboardEntry> lbe;
     public int amount;
+    public GameObject[] entryObjects;
+
+
     void Start()
     {
         
@@ -81,6 +85,21 @@ public class LeaderBoardManager : MonoBehaviour
 
     void UpdateUI()
     {
-        
+        for (int i=0;i<entryObjects.Length;i++)
+        {
+            if (i<lbe.Count)
+            {
+                entryObjects[i].transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = " " + lbe[i].Rank;
+                entryObjects[i].transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = " " + lbe[i].Score;
+                entryObjects[i].transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = " " + lbe[i].User.OculusID;
+            }
+            else
+            {
+                entryObjects[i].transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = " " + (i+1);
+                entryObjects[i].transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = " "  ;
+                entryObjects[i].transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = " "  ;
+
+            }
+        }
     }
 }

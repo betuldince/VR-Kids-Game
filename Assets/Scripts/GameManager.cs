@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI timeGUI;
     public float time;
     public int timeInt;
+    GameInfo info;
+
     private void Awake()
     {
         if (Instance == null)
@@ -29,7 +31,7 @@ public class GameManager : MonoBehaviour
         Green = 0;
         Yellow = 0;
         time = 120f;
-
+        info = GameObject.Find("LeaderBoardManager").GetComponent<GameInfo>();
     }
 
     // Update is called once per frame
@@ -41,5 +43,16 @@ public class GameManager : MonoBehaviour
             time=time-Time.deltaTime;
             timeInt = (int)time;
         }
+
+
+
+    }
+    public void SetScore()
+    {
+        info.SetScoreInt();
+    }
+    public void GetScore()
+    {
+        info.GetScoreInt();
     }
 }
