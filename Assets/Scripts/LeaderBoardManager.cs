@@ -14,7 +14,7 @@ public class LeaderBoardManager : MonoBehaviour
 
     void Start()
     {
-        
+         
     }
     private void Awake()
     {
@@ -22,25 +22,29 @@ public class LeaderBoardManager : MonoBehaviour
         {
             Core.AsyncInitialize();
             Entitlements.IsUserEntitledToApplication().OnComplete(EntitlementCallBack);
+            
         }
         catch (UnityException e)
         {
             Debug.LogError("Failed to intiliaze exception");
             Debug.LogException(e);
             UnityEngine.Application.Quit();
+            
         }
     }
     void EntitlementCallBack(Message msg)
     {
+        
         if (msg.IsError)
         {
+           
             Debug.LogError("You are not entitled to use this app");
             UnityEngine.Application.Quit();
         }
         else
         {
             Debug.Log("You are entitled to use this app");
-
+            Debug.Log("?");
         }
     }
     public void SubmitScore(string leaderboardname, int score)
