@@ -9,11 +9,11 @@ public class PointManager : MonoBehaviour
     public TextMeshProUGUI point_blue;
     public int frPoint;
     static int counter;
-     
+    AudioSource check;
 
     void Start()
     {
-        
+        check = GameObject.FindGameObjectWithTag("checksound").GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -73,7 +73,7 @@ public class PointManager : MonoBehaviour
             counter= counter+frPoint;
             point_blue.text = counter.ToString();
            
-            //check.Play(0);
+            check.Play(0);
         }
 
         if (collision.gameObject.layer == 9)

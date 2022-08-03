@@ -18,6 +18,7 @@ TagManager:
   - pump
   - gr_corn
   - tr_corn
+  - checksound
   layers:
   - Default
   - TransparentFX
