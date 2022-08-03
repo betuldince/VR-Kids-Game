@@ -39,7 +39,7 @@ public class LeaderBoardManager : MonoBehaviour
         {
            
             Debug.LogError("You are not entitled to use this app");
-            UnityEngine.Application.Quit();
+           // UnityEngine.Application.Quit();
         }
         else
         {

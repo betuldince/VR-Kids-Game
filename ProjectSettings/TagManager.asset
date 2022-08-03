@@ -8,6 +8,16 @@ TagManager:
   - Basket
   - gr_orange
   - tr_orange
+  - floor
+  - gr_banana
+  - tr_banana
+  - gr_coconut
+  - tr_coconut
+  - tr_apple
+  - gr_apple
+  - pump
+  - gr_corn
+  - tr_corn
   layers:
   - Default
   - TransparentFX
@@ -15,10 +25,10 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
+  - Hands
+  - floor
+  - interactables
+  - head
   - 
   - 
   - 
@@ -44,4 +54,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: water
+    uniqueID: 116455189
     locked: 0

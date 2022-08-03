@@ -3,7 +3,27 @@ guid: 813bc408174d5884985ecd4849533c9e
 ModelImporter:
   serializedVersion: 21202
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Groundcover_Wood_Mix
+    second: {fileID: 2100000, guid: fb1e95a93875b5e45b21d3b85a9c0a31, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: grass
+    second: {fileID: 2100000, guid: 4d19f4e8152b0c8459dadb6e6abde232, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: sugar_maple_bark
+    second: {fileID: 2100000, guid: 550dc0c916e77e542926fdde4fcc9805, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: sugar_maple_leaf
+    second: {fileID: 2100000, guid: 3fda27aad1204974e91eb7141a7393a9, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
