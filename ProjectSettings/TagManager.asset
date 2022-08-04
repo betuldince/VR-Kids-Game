@@ -19,6 +19,7 @@ TagManager:
   - gr_corn
   - tr_corn
   - checksound
+  - cake
   layers:
   - Default
   - TransparentFX

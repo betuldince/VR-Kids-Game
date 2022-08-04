@@ -8,11 +8,21 @@ public class GameManager : MonoBehaviour
     public int Blue;
     public int Green;
     public int Yellow;
+     
     public TextMeshProUGUI timeGUI;
+    public TextMeshProUGUI countGUI;
+
+    public TextMeshProUGUI blueGUI;
+    public TextMeshProUGUI finalPoint;
+
+    public GameObject countdownscreen;
+    public GameObject finishedscreen;
     public float time;
     public int timeInt;
     GameInfo info;
+    private bool isStarted=false;
 
+      
     private void Awake()
     {
         if (Instance == null)
@@ -30,21 +40,35 @@ public class GameManager : MonoBehaviour
         Blue = 0;
         Green = 0;
         Yellow = 0;
-        time = 120f;
+        time = 40f;
         info = GameObject.Find("LeaderBoardManager").GetComponent<GameInfo>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (time >= 0)
+        finalPoint.text = blueGUI.text;
+        if (isStarted)
         {
-            timeGUI.text = timeInt.ToString() + " s";
-            time=time-Time.deltaTime;
-            timeInt = (int)time;
+            if (time >= 0)
+            {
+                timeGUI.text = timeInt.ToString() + " s";
+                time = time - Time.deltaTime;
+                timeInt = (int)time;
+                if (time<=6)
+                {
+                    countdownscreen.SetActive(true);
+                    countGUI.text = timeInt.ToString();
+                    if (time<=0)
+                    {
+                        countdownscreen.SetActive(false);
+                        // finalPointGUI.text= _pointManager.finalCounter.ToString();
+                        
+                        finishedscreen.SetActive(true);
+                    }
+                }
+            }
         }
-
-
 
     }
     public void SetScore()
@@ -54,5 +78,9 @@ public class GameManager : MonoBehaviour
     public void GetScore()
     {
         info.GetScoreInt();
+    }
+    public void StartTime()
+    {
+        isStarted = true;   
     }
 }

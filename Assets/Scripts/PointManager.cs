@@ -5,11 +5,15 @@ using TMPro;
 
 public class PointManager : MonoBehaviour
 {
-    // Start is called before the first frame update
+ 
     public TextMeshProUGUI point_blue;
+     
+
     public int frPoint;
     static int counter;
     AudioSource check;
+    
+
 
     void Start()
     {
@@ -63,6 +67,10 @@ public class PointManager : MonoBehaviour
         {
             frPoint = 20;
         }
+        else if (gameObject.tag == "cake")
+        {
+            frPoint = 100;
+        }
     }
     void OnCollisionEnter(Collision collision)
     {
@@ -72,7 +80,7 @@ public class PointManager : MonoBehaviour
             
             counter= counter+frPoint;
             point_blue.text = counter.ToString();
-           
+            
             check.Play(0);
         }
 
