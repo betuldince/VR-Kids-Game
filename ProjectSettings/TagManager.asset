@@ -20,6 +20,7 @@ TagManager:
   - tr_corn
   - checksound
   - cake
+  - point
   layers:
   - Default
   - TransparentFX

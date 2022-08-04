@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEditor;
+ 
+using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
@@ -22,7 +25,9 @@ public class GameManager : MonoBehaviour
     GameInfo info;
     private bool isStarted=false;
 
-      
+    public GameObject[] pumpkins;
+    public GameObject pumpCanvas;
+    GameObject myGO;
     private void Awake()
     {
         if (Instance == null)
@@ -42,6 +47,46 @@ public class GameManager : MonoBehaviour
         Yellow = 0;
         time = 40f;
         info = GameObject.Find("LeaderBoardManager").GetComponent<GameInfo>();
+
+        
+
+        
+    }
+
+    void CreateCanvas()
+    {
+
+        
+        GameObject myText;
+        Canvas myCanvas;
+        Text text;
+        RectTransform rectTransform;
+
+        // Canvas
+        myGO = new GameObject();
+        myGO.name = "TestCanvas";
+        myGO.AddComponent<Canvas>();
+        
+        myCanvas = myGO.GetComponent<Canvas>();
+        myCanvas.renderMode = RenderMode.WorldSpace;
+        
+        myGO.AddComponent<CanvasScaler>();
+        myGO.AddComponent<GraphicRaycaster>();
+
+        // Text
+        myText = new GameObject();
+        myText.transform.parent = myGO.transform;
+        myText.name = "wibble";
+
+        text = myText.AddComponent<Text>();
+        text.font = (Font)Resources.Load("MyFont");
+        text.text = "wobble";
+        text.fontSize = 100;
+
+        // Text position
+        rectTransform = text.GetComponent<RectTransform>();
+        rectTransform.localPosition = new Vector3(0, 0, 0);
+        rectTransform.sizeDelta = new Vector2(10, 10);
     }
 
     // Update is called once per frame
