@@ -18,6 +18,18 @@ public class changeText : MonoBehaviour
         {
             frPoint = 30;
         }
+        else if (gameObject.tag == "tr_orange_2")
+        {
+            frPoint = 50;
+        }
+        else if (gameObject.tag == "tr_orange_3")
+        {
+            frPoint = 80;
+        }
+
+
+
+
         else if (gameObject.tag == "gr_banana")
         {
             frPoint = 30;

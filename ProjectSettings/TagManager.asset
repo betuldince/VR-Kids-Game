@@ -21,6 +21,8 @@ TagManager:
   - checksound
   - cake
   - point
+  - tr_orange_2
+  - tr_orange_3
   layers:
   - Default
   - TransparentFX
@@ -32,7 +34,7 @@ TagManager:
   - floor
   - interactables
   - head
-  - 
+  - holder
   - 
   - 
   - 

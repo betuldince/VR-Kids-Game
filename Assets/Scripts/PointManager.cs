@@ -60,6 +60,7 @@ public class PointManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // 1 basamak 20 iki basamak 30
 
         if (gameObject.tag == "gr_orange")
         {
@@ -67,6 +68,14 @@ public class PointManager : MonoBehaviour
         }else if (gameObject.tag == "tr_orange")
         {
             frPoint = 30;
+        }
+        else if (gameObject.tag == "tr_orange_1")
+        {
+            frPoint = 50;
+        }
+        else if (gameObject.tag == "tr_orange_2")
+        {
+            frPoint = 80;
         }
         else if (gameObject.tag == "gr_banana")
         {
