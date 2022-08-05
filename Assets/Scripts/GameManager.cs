@@ -28,6 +28,10 @@ public class GameManager : MonoBehaviour
     public GameObject[] pumpkins;
     public GameObject pumpCanvas;
     GameObject myGO;
+
+    public GameObject[] images;
+
+    public GameObject gameOver;
     private void Awake()
     {
         if (Instance == null)
@@ -45,12 +49,12 @@ public class GameManager : MonoBehaviour
         Blue = 0;
         Green = 0;
         Yellow = 0;
-        time = 40f;
+        time = 40;
         info = GameObject.Find("LeaderBoardManager").GetComponent<GameInfo>();
+ 
 
-        
 
-        
+
     }
 
     void CreateCanvas()
@@ -103,13 +107,30 @@ public class GameManager : MonoBehaviour
                 if (time<=6)
                 {
                     countdownscreen.SetActive(true);
-                    countGUI.text = timeInt.ToString();
+                    //countGUI.text = timeInt.ToString();
+
+
+                    int l = 0;
+                    for(int k = 5; k >= 0; k--)
+                    {
+                        if (timeInt == k && l!=5)
+                        {
+                            
+                            images[l].SetActive(true);
+
+                        }
+
+                        l = l + 1;
+                    }
+
+
                     if (time<=0)
                     {
                         countdownscreen.SetActive(false);
                         // finalPointGUI.text= _pointManager.finalCounter.ToString();
                         
                         finishedscreen.SetActive(true);
+                        gameOver.SetActive(true);
                     }
                 }
             }
