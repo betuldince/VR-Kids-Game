@@ -56,6 +56,21 @@ public class changeText : MonoBehaviour
         {
             frPoint = 25;
         }
+        else if (gameObject.tag == "tr_apple_1")
+        {
+            frPoint = 40;
+        }
+
+        else if (gameObject.tag == "tr_apple_2")
+        {
+            frPoint = 60;
+        }
+
+        else if (gameObject.tag == "tr_apple_3")
+        {
+            frPoint = 120;
+        }
+
         else if (gameObject.tag == "pump")
         {
             frPoint = 10;
@@ -71,7 +86,7 @@ public class changeText : MonoBehaviour
         }
         else if (gameObject.tag == "cake")
         {
-            frPoint = 100;
+            frPoint = 150;
         }
         Point.text = frPoint.ToString();
  

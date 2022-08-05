@@ -24,6 +24,9 @@ TagManager:
   - tr_orange_2
   - tr_orange_3
   - tr_banana_2
+  - tr_apple_1
+  - tr_apple_2
+  - tr_apple_3
   layers:
   - Default
   - TransparentFX
