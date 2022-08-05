@@ -79,12 +79,17 @@ public class PointManager : MonoBehaviour
         }
         else if (gameObject.tag == "gr_banana")
         {
-            frPoint = 30;
+            frPoint = 25;
         }
         else if (gameObject.tag == "tr_banana")
         {
             frPoint = 50;
         }
+        else if (gameObject.tag == "tr_banana_2")
+        {
+            frPoint = 80;
+        }
+
         else if (gameObject.tag == "gr_coconut")
         {
             frPoint = 25;

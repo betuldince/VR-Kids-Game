@@ -3,7 +3,17 @@ guid: bc665f467b274644cb86088208c2a966
 ModelImporter:
   serializedVersion: 21202
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ScoreBoard
+    second: {fileID: 2100000, guid: 02d8a6a966e2dd547b6cb3069d92432f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ScoreBoard_Paper
+    second: {fileID: 2100000, guid: c6a91ef6f6da73148afd833ae3e6d9ee, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

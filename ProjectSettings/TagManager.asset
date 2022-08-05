@@ -23,6 +23,7 @@ TagManager:
   - point
   - tr_orange_2
   - tr_orange_3
+  - tr_banana_2
   layers:
   - Default
   - TransparentFX
