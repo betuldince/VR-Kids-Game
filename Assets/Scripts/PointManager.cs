@@ -96,7 +96,7 @@ public class PointManager : MonoBehaviour
         }
         else if (gameObject.tag == "tr_coconut")
         {
-            frPoint = 55;
+            frPoint = 85;
         }
         else if (gameObject.tag == "gr_apple")
         {
