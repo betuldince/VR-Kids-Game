@@ -49,7 +49,7 @@ public class GameManager : MonoBehaviour
         Blue = 0;
         Green = 0;
         Yellow = 0;
-        time = 40;
+        time = 120;
         info = GameObject.Find("LeaderBoardManager").GetComponent<GameInfo>();
  
 

@@ -12,6 +12,10 @@ public class checkVideoFinished : MonoBehaviour
     public GameObject scene;
     public GameObject rig;
     // Use this for initialization
+
+    public VideoPlayer vid;
+    public VideoClip rewardclip;
+
     void Start()
     {
 
@@ -30,5 +34,13 @@ public class checkVideoFinished : MonoBehaviour
             rig.SetActive(false);
             scene.SetActive(true);
         }
+    }
+
+    public void rewardVideo()
+    {
+        sphere.SetActive(true);
+        rig.SetActive(true);
+        scene.SetActive(false);
+        vid.clip = rewardclip;
     }
 }
