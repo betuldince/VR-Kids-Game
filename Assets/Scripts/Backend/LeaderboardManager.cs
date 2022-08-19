@@ -10,7 +10,7 @@ public class LeaderboardManager : MonoBehaviour
     // Start is called before the first frame update
     private bool isSetting;
     private bool isGetting;
-
+    private bool isDeleting;
     private bool setButton=false;
     private bool setButton1 = false;
     private bool getButton = false;
@@ -23,15 +23,16 @@ public class LeaderboardManager : MonoBehaviour
             isSetting = true;
 
              
-            StartCoroutine(SetScore("yahu",""+550));
+            StartCoroutine(SetScore("again",""+700));
+            
             setButton = false;
         }
-        if (setButton1 && !isSetting)
+        if (setButton1 && !isDeleting)
         {
-            isSetting = true;
+            isDeleting = true;
 
 
-            StartCoroutine(SetScore("dipsy", "" + 250));
+            StartCoroutine(DeleteScores( ));
             setButton1 = false;
         }
 
@@ -66,6 +67,17 @@ public class LeaderboardManager : MonoBehaviour
             Debug.Log("sent score");
             isSetting = false;
         }
+    }
+    private IEnumerator DeleteScores()
+    {
+        string url = $"http://dreamlo.com/lb/lm1gyszIlk6D7SfWnQwdjw3EP7lFbF_UmjQnfezRP91A/clear";
+        using (UnityWebRequest request = UnityWebRequest.Get(url))
+        {
+            yield return request.SendWebRequest();
+            Debug.Log("delete score");
+            isDeleting = false;
+        }
+
     }
     private IEnumerator GetScore( )
     {
