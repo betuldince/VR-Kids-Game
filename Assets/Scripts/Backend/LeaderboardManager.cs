@@ -5,6 +5,7 @@ using UnityEngine.Networking;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using TMPro;
+using System;
 public class LeaderboardManager : MonoBehaviour
 {
     // Start is called before the first frame update
@@ -12,31 +13,38 @@ public class LeaderboardManager : MonoBehaviour
     private bool isGetting;
     private bool isDeleting;
     private bool setButton=false;
-    private bool setButton1 = false;
+    private bool deleteButton = false;
     private bool getButton = false;
-
+    public bool isReady;
     public TextMeshProUGUI[] topscores;
+    public string[] scoreHolder;
+    public int score;
+    private void Start()
+    {
+        StartCoroutine(DeleteScores());
+        StartCoroutine(SetScore("Mavi", "" + 0));
+        StartCoroutine(SetScore("Sarý", "" + 0));
+        StartCoroutine(SetScore("Yeþil", "" + 0));
+
+    }
     void Update()
     {
+
         if (setButton && !isSetting)
         {
             isSetting = true;
-
-             
-            StartCoroutine(SetScore("again",""+700));
-            
+            score = PointManager.counter;
+            StartCoroutine(SetScore("MaviRenk", "" + score));
             setButton = false;
         }
-        if (setButton1 && !isDeleting)
+        if (deleteButton && !isDeleting)
         {
             isDeleting = true;
-
-
-            StartCoroutine(DeleteScores( ));
-            setButton1 = false;
+            StartCoroutine(DeleteScores());
+            deleteButton = false;
         }
 
-
+        
         if (getButton && !isGetting)
         {
             isGetting = true;
@@ -44,15 +52,20 @@ public class LeaderboardManager : MonoBehaviour
             getButton = false;
         }
 
+
+
+
+
     }
 
     public void SetButton()
     {
         setButton = true;
     }
-    public void SetButton1()
+    public void DeleteButton()
     {
-        setButton1 = true;
+        //Startta sýfýrla, username e göre en son generate et 
+        deleteButton = true;
     }
     public void GetButton()
     {
@@ -106,7 +119,7 @@ public class LeaderboardManager : MonoBehaviour
             var user = response.dreamlo.leaderboard.entry[i].name;
             var score = response.dreamlo.leaderboard.entry[i].score;
             topscores[i].text = $"{i + 1}: { user}-{ score}";
-
+            scoreHolder[i] = score;
         }
     }
 

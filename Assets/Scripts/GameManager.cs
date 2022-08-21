@@ -49,49 +49,12 @@ public class GameManager : MonoBehaviour
         Blue = 0;
         Green = 0;
         Yellow = 0;
-        time = 120;
+        time = 20;
         info = GameObject.Find("LeaderBoardManager").GetComponent<GameInfo>();
  
-
-
-
     }
 
-    void CreateCanvas()
-    {
-
-        
-        GameObject myText;
-        Canvas myCanvas;
-        Text text;
-        RectTransform rectTransform;
-
-        // Canvas
-        myGO = new GameObject();
-        myGO.name = "TestCanvas";
-        myGO.AddComponent<Canvas>();
-        
-        myCanvas = myGO.GetComponent<Canvas>();
-        myCanvas.renderMode = RenderMode.WorldSpace;
-        
-        myGO.AddComponent<CanvasScaler>();
-        myGO.AddComponent<GraphicRaycaster>();
-
-        // Text
-        myText = new GameObject();
-        myText.transform.parent = myGO.transform;
-        myText.name = "wibble";
-
-        text = myText.AddComponent<Text>();
-        text.font = (Font)Resources.Load("MyFont");
-        text.text = "wobble";
-        text.fontSize = 100;
-
-        // Text position
-        rectTransform = text.GetComponent<RectTransform>();
-        rectTransform.localPosition = new Vector3(0, 0, 0);
-        rectTransform.sizeDelta = new Vector2(10, 10);
-    }
+ 
 
     // Update is called once per frame
     void Update()
