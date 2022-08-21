@@ -21,7 +21,7 @@ public class LeaderboardManager : MonoBehaviour
     public int score;
     private void Start()
     {
-        StartCoroutine(DeleteScores());
+        
         StartCoroutine(SetScore("Mavi", "" + 0));
         StartCoroutine(SetScore("Sarý", "" + 0));
         StartCoroutine(SetScore("Yeþil", "" + 0));
@@ -34,7 +34,7 @@ public class LeaderboardManager : MonoBehaviour
         {
             isSetting = true;
             score = PointManager.counter;
-            StartCoroutine(SetScore("MaviRenk", "" + score));
+            StartCoroutine(SetScore("MaviRl", "" + score));
             setButton = false;
         }
         if (deleteButton && !isDeleting)
