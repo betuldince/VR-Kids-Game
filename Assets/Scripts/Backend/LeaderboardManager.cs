@@ -27,6 +27,12 @@ public class LeaderboardManager : MonoBehaviour
 
 
     }
+    private void Awake()
+    {
+
+        StartCoroutine(DeleteScores());
+
+    }
     void Update()
     {
 
@@ -34,16 +40,16 @@ public class LeaderboardManager : MonoBehaviour
         {
             isSetting = true;
  
-            StartCoroutine(SetScore("Mavi Takým", "" + scoreInitial));
-            StartCoroutine(SetScore("Sari Takým", "" + scoreInitial));
-            StartCoroutine(SetScore("Yeþil Takým", "" + scoreInitial));
+            StartCoroutine(SetScore("Mavi Takim", "" + scoreInitial));
+            StartCoroutine(SetScore("Sari Takim", "" + scoreInitial));
+            StartCoroutine(SetScore("Yeþil Takim", "" + scoreInitial));
             setButton = false;
         }
         if (finalSetButton && !isSetting)
         {
             isSetting = true;
             score = PointManager.counter;
-            StartCoroutine(SetScore("Mavi Takým", "" + score));
+            StartCoroutine(SetScore("Mavi Takim", "" + score));
  
             finalSetButton = false;
         }
