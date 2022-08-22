@@ -13,17 +13,18 @@ public class LeaderboardManager : MonoBehaviour
     private bool isGetting;
     private bool isDeleting;
     private bool setButton=false;
+    private bool finalSetButton = false;
+    
     private bool deleteButton = false;
     private bool getButton = false;
     public bool isReady;
     public TextMeshProUGUI[] topscores;
     private int score;
+    private int scoreInitial=0;
     private void Start()
     {
         
-        StartCoroutine(SetScore("Mavi Takým:", "" + 0));
-        StartCoroutine(SetScore("Sarý Takým:", "" + 0));
-        StartCoroutine(SetScore("Yeþil Takým:", "" + 0));
+
 
     }
     void Update()
@@ -32,10 +33,23 @@ public class LeaderboardManager : MonoBehaviour
         if (setButton && !isSetting)
         {
             isSetting = true;
-            score = PointManager.counter;
-            StartCoroutine(SetScore("Mavi Takým", "" + score));
+ 
+            StartCoroutine(SetScore("Mavi Takým", "" + scoreInitial));
+            StartCoroutine(SetScore("Sari Takým", "" + scoreInitial));
+            StartCoroutine(SetScore("Yeþil Takým", "" + scoreInitial));
             setButton = false;
         }
+        if (finalSetButton && !isSetting)
+        {
+            isSetting = true;
+            score = PointManager.counter;
+            StartCoroutine(SetScore("Mavi Takým", "" + score));
+ 
+            finalSetButton = false;
+        }
+
+
+
         if (deleteButton && !isDeleting)
         {
             isDeleting = true;
@@ -56,6 +70,10 @@ public class LeaderboardManager : MonoBehaviour
     public void SetButton()
     {
         setButton = true;
+    }
+    public void FinalSetButton()
+    {
+        finalSetButton = true;
     }
     public void DeleteButton()
     {
