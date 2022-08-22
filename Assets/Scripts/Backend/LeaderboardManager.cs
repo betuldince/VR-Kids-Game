@@ -23,8 +23,8 @@ public class LeaderboardManager : MonoBehaviour
     private int scoreInitial=0;
     private void Start()
     {
-        
 
+        SetButton();
 
     }
     private void Awake()
@@ -41,8 +41,8 @@ public class LeaderboardManager : MonoBehaviour
             isSetting = true;
  
             StartCoroutine(SetScore("Mavi Takim", "" + scoreInitial));
-            StartCoroutine(SetScore("Sari Takim", "" + scoreInitial));
-            StartCoroutine(SetScore("Yeþil Takim", "" + scoreInitial));
+            //StartCoroutine(SetScore("Sari Takim", "" + scoreInitial));
+            //StartCoroutine(SetScore("Yesil Takim", "" + scoreInitial));
             setButton = false;
         }
         if (finalSetButton && !isSetting)
@@ -63,12 +63,20 @@ public class LeaderboardManager : MonoBehaviour
             deleteButton = false;
         }
 
-        
+      /*  
         if (getButton && !isGetting)
         {
             isGetting = true;
             StartCoroutine(GetScore());
             getButton = false;
+        }
+      */
+
+        if (getButton )
+        {
+            
+            StartCoroutine(GetScore());
+            
         }
 
     }
@@ -137,7 +145,7 @@ public class LeaderboardManager : MonoBehaviour
         {
             var user = response.dreamlo.leaderboard.entry[i].name;
             var score = response.dreamlo.leaderboard.entry[i].score;
-            topscores[i].text = $"{i + 1}: { user}-{ score}";
+            topscores[i].text = $"{i + 1}: { user} : { score}";
         }
     }
 
