@@ -18,8 +18,12 @@ public class checkVideoFinished : MonoBehaviour
 
     void Start()
     {
-
         time = gameObject.GetComponent<VideoPlayer>().clip.length;
+    }
+    private void Awake()
+    {
+        LeaderboardManager leaderboardManager = new LeaderboardManager();
+        leaderboardManager.DeleteScores();
     }
 
 

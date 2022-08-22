@@ -17,14 +17,13 @@ public class LeaderboardManager : MonoBehaviour
     private bool getButton = false;
     public bool isReady;
     public TextMeshProUGUI[] topscores;
-    public string[] scoreHolder;
-    public int score;
+    private int score;
     private void Start()
     {
         
-        StartCoroutine(SetScore("Mavi", "" + 0));
-        StartCoroutine(SetScore("Sarý", "" + 0));
-        StartCoroutine(SetScore("Yeþil", "" + 0));
+        StartCoroutine(SetScore("Mavi Takým:", "" + 0));
+        StartCoroutine(SetScore("Sarý Takým:", "" + 0));
+        StartCoroutine(SetScore("Yeþil Takým:", "" + 0));
 
     }
     void Update()
@@ -34,7 +33,7 @@ public class LeaderboardManager : MonoBehaviour
         {
             isSetting = true;
             score = PointManager.counter;
-            StartCoroutine(SetScore("MaviRl", "" + score));
+            StartCoroutine(SetScore("Mavi Takým", "" + score));
             setButton = false;
         }
         if (deleteButton && !isDeleting)
@@ -51,10 +50,6 @@ public class LeaderboardManager : MonoBehaviour
             StartCoroutine(GetScore());
             getButton = false;
         }
-
-
-
-
 
     }
 
@@ -81,7 +76,7 @@ public class LeaderboardManager : MonoBehaviour
             isSetting = false;
         }
     }
-    private IEnumerator DeleteScores()
+    public IEnumerator DeleteScores()
     {
         string url = $"http://dreamlo.com/lb/lm1gyszIlk6D7SfWnQwdjw3EP7lFbF_UmjQnfezRP91A/clear";
         using (UnityWebRequest request = UnityWebRequest.Get(url))
@@ -119,7 +114,6 @@ public class LeaderboardManager : MonoBehaviour
             var user = response.dreamlo.leaderboard.entry[i].name;
             var score = response.dreamlo.leaderboard.entry[i].score;
             topscores[i].text = $"{i + 1}: { user}-{ score}";
-            scoreHolder[i] = score;
         }
     }
 
